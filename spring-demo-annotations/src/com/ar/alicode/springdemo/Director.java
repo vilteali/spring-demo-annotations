@@ -3,11 +3,12 @@ package com.ar.alicode.springdemo;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Person implements Speak {
+public class Director implements Speak {
 
 	@Override
 	public String getYouSpeak() {
-		return "I'm speak english";
+		// TODO Auto-generated method stub
+		return "I'm going to teaching to the students";
 	}
 
 }

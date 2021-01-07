@@ -9,9 +9,11 @@ public class AnnotationDemoApp {
 		ClassPathXmlApplicationContext context =
 				new ClassPathXmlApplicationContext("applicationContext.xml");
 		
-		Speak speak = context.getBean("thePerson", Speak.class);
+		Speak speak = context.getBean("person", Speak.class);
+		Speak speak2 = context.getBean("director", Speak.class);
 		
 		System.out.println(speak.getYouSpeak());
+		System.out.println(speak2.getYouSpeak());
 		
 		context.close();
 		
