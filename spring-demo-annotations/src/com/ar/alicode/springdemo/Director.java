@@ -11,4 +11,10 @@ public class Director implements Speak {
 		return "I'm going to teaching to the students";
 	}
 
+	@Override
+	public String getDailyFortune() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
