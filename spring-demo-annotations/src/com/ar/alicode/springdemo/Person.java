@@ -8,10 +8,14 @@ public class Person implements Speak {
 	
 	private FortuneService fortuneService;
 	
-	@Autowired
+	public Person() {
+		System.out.println("Person: inside default constructor");
+	}
+	
+	/*@Autowired
 	public Person(FortuneService fortuneService) {
 		this.fortuneService = fortuneService;
-	}
+	}*/
 
 	@Override
 	public String getYouSpeak() {
@@ -22,5 +26,16 @@ public class Person implements Speak {
 	public String getDailyFortune() {
 		return fortuneService.getFortune();
 	}
+
+	public FortuneService getFortuneService() {
+		return fortuneService;
+	}
+
+	@Autowired
+	public void setFortuneService(FortuneService fortuneService) {
+		this.fortuneService = fortuneService;
+	}
+	
+	
 
 }
