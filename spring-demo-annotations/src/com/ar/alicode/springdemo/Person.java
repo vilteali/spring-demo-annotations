@@ -2,14 +2,21 @@ package com.ar.alicode.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Person implements Speak {
 	
 	@Autowired
-	@Qualifier("randomFortuneService")
+	@Qualifier("freeDayFortuneService")
 	private FortuneService fortuneService;
+	
+	@Value("${foo.email}")
+	private String email;
+	
+	@Value("${foo.company}")
+	private String company;
 	
 	public Person() {
 		System.out.println("Person: inside default constructor");
@@ -32,7 +39,15 @@ public class Person implements Speak {
 
 	@Override
 	public String getDailyFortune() {
-		return fortuneService.getFortune();
+		return "Day free is: "+fortuneService.getFortune();
 	}
-
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public String getCompany() {
+		return company;
+	}
+	
 }
