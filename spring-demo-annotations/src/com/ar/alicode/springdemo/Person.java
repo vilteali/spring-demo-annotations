@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class Person implements Speak {
 	
 	@Autowired
-	@Qualifier("freeDayFortuneService")
+	@Qualifier("fileFortuneService")
 	private FortuneService fortuneService;
 	
 	@Value("${foo.email}")
@@ -39,7 +39,7 @@ public class Person implements Speak {
 
 	@Override
 	public String getDailyFortune() {
-		return "Day free is: "+fortuneService.getFortune();
+		return fortuneService.getFortune();
 	}
 	
 	public String getEmail() {
