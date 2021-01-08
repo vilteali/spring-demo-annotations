@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -14,12 +16,17 @@ public class FileFortuneService implements FortuneService {
 	
 	// Definimos la ubicación de nuestro archivo a leer
 	private String fileName = "C:\\Users\\Vilte\\Documents\\Ali\\fortune-data.txt";
-	
 	private List<String> theFortunes;
 	private Random myRandom = new Random();
 	
 	public FileFortuneService() {
+		System.out.println(">> FileFortuneService: inside default constructor");
+	}	
 	
+	@PostConstruct
+	public void loadTheFortunesList() {
+		System.out.println(">> FileFortuneService: inside method loadTheFortunesFile");
+		
 		File theFile = new File(fileName);
 		
 		System.out.println("Reading fortunes from file: "+theFile);
@@ -38,8 +45,7 @@ public class FileFortuneService implements FortuneService {
 		} catch (Exception e) { 
 			e.printStackTrace();
 		}
-		
-	}	
+	}
 	
 	@Override
 	public String getFortune() {
