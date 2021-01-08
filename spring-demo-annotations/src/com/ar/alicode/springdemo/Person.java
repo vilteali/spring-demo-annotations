@@ -1,11 +1,14 @@
 package com.ar.alicode.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Person implements Speak {
 	
+	@Autowired
+	@Qualifier("randomFortuneService")
 	private FortuneService fortuneService;
 	
 	public Person() {
@@ -17,6 +20,11 @@ public class Person implements Speak {
 		this.fortuneService = fortuneService;
 	}*/
 
+	/*@Autowired
+	public void setFortuneService(FortuneService fortuneService) {
+		this.fortuneService = fortuneService;
+	}*/
+	
 	@Override
 	public String getYouSpeak() {
 		return "I'm speak english";
@@ -26,16 +34,5 @@ public class Person implements Speak {
 	public String getDailyFortune() {
 		return fortuneService.getFortune();
 	}
-
-	public FortuneService getFortuneService() {
-		return fortuneService;
-	}
-
-	@Autowired
-	public void setFortuneService(FortuneService fortuneService) {
-		this.fortuneService = fortuneService;
-	}
-	
-	
 
 }
