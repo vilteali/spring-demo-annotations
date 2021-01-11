@@ -10,10 +10,12 @@ public class SwimJavaConfigDemoApp {
 		AnnotationConfigApplicationContext context =
 				new AnnotationConfigApplicationContext(SportConfig.class);
 		
-		Speak speak = context.getBean("swimPerson", Speak.class);
+		SwimPerson person = context.getBean("swimPerson", SwimPerson.class);
 		
-		System.out.println(speak.getYouSpeak());
-		System.out.println(speak.getDailyFortune());
+		System.out.println(person.getYouSpeak());
+		System.out.println(person.getDailyFortune());
+		System.out.println(person.getEmail());
+		System.out.println(person.getCompany());
 		
 		context.close();
 		
